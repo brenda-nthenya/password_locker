@@ -38,10 +38,21 @@ class TestCredential(unittest.TestCase):
         self.assertEqual(self.new_credential.username, "Brenda")
         self.assertEqual(self.new_credential.password, "asdfg123")
          
-    def test_save_credentials(self):
+    def test_save_credential(self):
 
         self.new_credential.save_credential()
         self.assertEqual(len(Credential.credential_list), 1)
+
+    def tearDown(self):
+        '''Removes all other instances created during the test.'''
+        Credential.credential_list = []
+
+    def test_save_multiple_credential(self):
+        '''Tests the ability to store multiple credentialsin the credential list'''
+        self.new_credential.save_credential()
+        test_credential = Credential("Twitter", "Bots", "pancakes")
+        test_credential.save_credential()
+        self.assertEqual(len(Credential.credential_list),1)
 
 if __name__ == '__main__':
     unittest.main()
