@@ -1,4 +1,6 @@
 import pyperclip
+import string
+import random
 class Credentials:
 
     credentials_list = []
@@ -44,4 +46,9 @@ class Credentials:
         account_found = Credentials.find_credential(account)
         pyperclip.copy(account_found.username)
 
+    
+    def pass_generator(stringLength=10):
+        '''Generates a random password '''
+        password = string.ascii_letters + string.digits + "!@#$%^^^&|"
+        return ''.join(random.choice(password) for i in range(stringLength))
     
