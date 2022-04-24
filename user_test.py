@@ -1,5 +1,6 @@
 import unittest
 from user import User
+from credentials import Credentials
 
 class TestUser(unittest.TestCase):
 
@@ -16,10 +17,8 @@ class TestUser(unittest.TestCase):
         self.assertEqual(self.new_user.user_name, "Brenda")
         self.assertEqual(self.new_user.password, "Qwerty")
 
-    def test_save_user(self):
-        self.new_user.save_user()
-        self.assertEqual(len(User.user_list),1)
 
+         
     
 
 if __name__ == '__main__':
