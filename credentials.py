@@ -1,7 +1,7 @@
 
-class Credential:
+class Credentials:
 
-    credential_list = []
+    credentials_list = []
 
     def __init__(self,account, username, password):
         self.account = account
@@ -10,4 +10,8 @@ class Credential:
 
     def save_credential(self):
         ''' Saves credential object to the credential list'''
-        Credential.credential_list.append(self)
+        Credentials.credentials_list.append(self)
+
+    def delete_credential(self):
+        '''Deletes a credential object'''
+        Credentials.credentials_list.remove(self)
