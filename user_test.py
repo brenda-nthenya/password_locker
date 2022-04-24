@@ -1,7 +1,35 @@
 import unittest
+import pyperclip
+
 from user import User
 from credentials import Credentials
 
+
+class TestUser(unittest.TestCase):
+    """
+    A Test class that defines test cases for the User class.
+    """
+    def setUp(self):
+        """
+        Method that runs before each individual test methods run.
+        """
+        self.new_user = User('Brenda','pebbles')
+
+    def test_init(self):
+        """
+        test case to chek if the object has been initialized correctly
+        """
+        self.assertEqual(self.new_user.user_name,'Brenda')
+        self.assertEqual(self.new_user.password,'pebbles')
+
+    def test_save_user(self):
+        """
+        test case to test if a new user instance has been saved into the User list
+        """
+        self.new_user.save_user()
+        self.assertEqual(len(User.user_list),1)
+
+        
 class TestCredentials(unittest.TestCase):
 
 
@@ -67,6 +95,14 @@ class TestCredentials(unittest.TestCase):
     def test_credential_display(self):
         '''Returns a list of all credentials'''
         self.assertEqual(Credentials.credential_display(), Credentials.credentials_list)
+
+    # def test_copy_username(self):
+    #     '''Test to confirm that the account can be copied'''
+    #     self.new_credential.save_credential()
+    #     Credentials.copy_username("Brenda")
+
+    #     self.assertEqual(self.new_credential.account, pyperclip.paste())
+
 
 
 if __name__ == '__main__':
