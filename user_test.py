@@ -1,6 +1,6 @@
 import unittest
 from user import User
-from credentials import Credentials
+from credentials import Credential
 
 class TestUser(unittest.TestCase):
 
@@ -22,13 +22,14 @@ class TestUser(unittest.TestCase):
         self.assertEqual(len(User.user_list),1)
 
 
-class TestCredentials(unittest.TestCase):
+class TestCredential(unittest.TestCase):
+
 
     '''Tests the functionalities of the Credentials class'''
 
     def setUp(self):
         '''Sets up the method to run before each test'''
-        self.new_credential = Credentials("Facebook", "Brenda", "asdfg123")
+        self.new_credential = Credential("Facebook", "Brenda", "asdfg123")
     
     def test_init(self):
         ''' Test if the object has correctly been initialised'''
@@ -37,7 +38,10 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual(self.new_credential.username, "Brenda")
         self.assertEqual(self.new_credential.password, "asdfg123")
          
-    
+    def test_save_credentials(self):
+
+        self.new_credential.save_credential()
+        self.assertEqual(len(Credential.credential_list), 1)
 
 if __name__ == '__main__':
     unittest.main()
