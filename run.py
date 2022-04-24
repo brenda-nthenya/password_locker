@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 
 from user import User
 from credentials import Credentials
@@ -13,7 +14,7 @@ def save_user(user):
     '''
     Function to save user
     '''
-    User.save_user()
+    user.save_user()
 
 def display_user():
     '''Function to display all users'''
@@ -78,20 +79,21 @@ def main():
 
         user_name = input('User_name: ')
         while True:
-            print("Please select either of the following:..\n GenPass - To auto generate a password \n TPass - To type our own password ")
-            password_option = input().lower.strip()
-            if password_option == 'genpass':
-                password = generate_Password
+            print("Please select either of the following:..\n GP - To auto generate a password \n TP - To type our own password ")
+            password_option = input().lower().strip()
+            if password_option == 'gp':
+                password = generate_Password()
                 break
-            elif password_option == 'tpass':
+               
+            elif password_option == 'tp':
                 password = input("Enter Password\n")
                 break
             else:
                 print ('Invalid password. PLease try again')
             
-        save_user(create_user(user_name, password))
+            save_user(create_user(user_name, password))
 
-        print(f'Hello {user_name}. Welcome to your password manager')
+            print(f'Hello {user_name}. Welcome to your password manager')
     elif short_code == 'li':
         print ('Enter your username and password to log in:')
         user_name = input ('User name: ')
