@@ -33,3 +33,8 @@ class Credentials:
             if credential.account == account:
                 return True
         return False
+
+    @classmethod
+    def credential_display(cls):
+        '''Dsiplays the contents of the credentials list'''
+        return cls.credentials_list
