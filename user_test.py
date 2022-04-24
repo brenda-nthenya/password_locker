@@ -22,6 +22,15 @@ class TestUser(unittest.TestCase):
         self.assertEqual(len(User.user_list),1)
 
 
+class TestCredentials(unittest.TestCase):
+
+    '''Tests the functionalities of the Credentials class'''
+
+    def setUp(self):
+        '''Sets up the method to run before each test'''
+        self.new_credential = Credentials("Facebook", "Brenda", "asdfg123")
+    
+
 
          
     
