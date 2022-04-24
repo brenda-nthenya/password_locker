@@ -43,5 +43,8 @@ class TestCredentials(unittest.TestCase):
         test_credential.delete_credential()
         self.assertEqual(len(Credentials.credentials_list), 1)
 
+    # def test_find_credential(self):
+
+
 if __name__ == '__main__':
     unittest.main()
