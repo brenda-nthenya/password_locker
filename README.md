@@ -1,4 +1,6 @@
 # Password-Locker
+
+<img src="images/welcome.png"></img>
 ## Author
 
 [Brenda Nthenya](https://github.com/brenda-nthenya)
